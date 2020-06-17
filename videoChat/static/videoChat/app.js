@@ -28,7 +28,7 @@ const log = document.getElementById('log');
 const messageInput = document.getElementById('message-input');
 const submit = document.getElementById('submit');
 const hide = 'hide';
-const urlUser = document.querySelector('#urlUser');
+const urlUser = document.querySelector('#urlUser').value;
 
 // PubNub Channel for sending/receiving global chat messages
 //     also used for user presence with PubNub Presence
@@ -66,7 +66,7 @@ getLocalStream().then((localMediaStream) => {
 // Prompt the user for a username input
 getLocalUserName().then((myUsername) => {
     username = myUsername;
-    usernameModal.classList.add(hide);
+    //usernameModal.classList.add(hide);
     initWebRtcApp();
 });
 
@@ -315,20 +315,15 @@ function getLocalUserName() {
     return new Promise((resolve) => {
         //usernameInput.focus();
         //usernameInput.value = '';
+        console.log(urlUser)
 
-        $.ajax({
-            url: urlUser,
-            type: 'get',
-            data: {},
-            success: function (data) {
-                if (data.success) {
-
-                    resolve(data.success);
-
-                }
-            }
-
-        });
+        fetch(urlUser).then(result=> {
+            console.log(result);
+            return result.json();
+        }).then(data => {
+            console.log(data)
+            resolve(data.success);
+        })
                     
                     
 
