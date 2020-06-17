@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <title>PubNub WebRTC</title>
+    <title>Test DjangoWebRtc</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'videoChat/style.css' %}">
 </head>
 <body>
-
+    <!--
     <div id="username-input-modal" class="modal-background">
         <div class="user-input-modal">
             <h3>Chat Username</h3>
@@ -21,6 +21,9 @@
             </div>
         </div>
     </div>
+    -->
+
+    <button id="urlUser" value="{% url 'videoChat:userReturn' %}" style="display: none;">urlGetUser</button>
 
     <div id="incoming-call-modal" class="modal-background hide">
         <div class="user-input-modal">
@@ -98,6 +101,8 @@
     </div>
 
 </body>
+
+<script src="{% static 'videoChat/jquery.min.js' %}"></script>
 
 <script type="text/javascript" src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.21.7.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pubnub-js-webrtc@latest/dist/pubnub-js-webrtc.js"></script>

@@ -16,7 +16,11 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+app_name = 'videoChat'
+
 urlpatterns = [
     path('', views.index, name='index'),
+    path('userReturn/', views.userReturn.as_view(), name='userReturn'),
+    path('resetUsed/', views.resetUsed, name='resetUsed')
     
 ]
